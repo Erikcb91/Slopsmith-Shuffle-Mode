@@ -37,7 +37,8 @@
 
 ### Plugin Settings
 
-<img width="450" height="610" alt="image" src="https://github.com/user-attachments/assets/5f0e7d1d-c0a5-40d0-bff3-5d439a928ff0" />
+
+<img width="450" height="730" alt="image" src="https://github.com/user-attachments/assets/d5730f0e-9aac-4a31-835c-518657bc359f" />
 
 <br>
 
