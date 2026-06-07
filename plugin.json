@@ -6,7 +6,7 @@
   "author": "community",
   "license": "AGPL-3.0",
   "nav": {
-    "label": "🔀 Shuffle",
+    "label": "Shuffle",
     "screen": "shuffle"
   },
   "screen": "screen.html",
