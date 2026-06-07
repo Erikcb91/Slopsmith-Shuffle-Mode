@@ -1,10 +1,6 @@
 """
 slopsmith-plugin-shuffle — routes.py  (v3)
-Endpoints:
-  GET /api/plugins/shuffle/random   — random song (artist, tuning, avoid filters)
-  GET /api/plugins/shuffle/next     — alias of random (used by auto-advance)
-  GET /api/plugins/shuffle/artists  — distinct artists
-  GET /api/plugins/shuffle/tunings  — distinct tunings from the library
+Fix: tuning uses column 'tuning_name' (human-readable), not 'tuning' (offsets).
 """
 
 _meta_db = None
@@ -14,7 +10,6 @@ def setup(app, context):
     global _meta_db
     _meta_db = context["meta_db"]
 
-    # ── helpers ──────────────────────────────────────────────────────────
     def _pick(artist: str = "", tuning: str = "", avoid: str = ""):
         params = []
         where  = ["1=1"]
@@ -24,8 +19,7 @@ def setup(app, context):
             params.append(f"%{artist}%")
 
         if tuning:
-            # tuning column may be stored as "Eb Standard", "Drop D", etc.
-            where.append("LOWER(tuning) = LOWER(?)")
+            where.append("LOWER(tuning_name) = LOWER(?)")
             params.append(tuning)
 
         if avoid:
@@ -35,7 +29,7 @@ def setup(app, context):
                 params.extend(ids)
 
         sql = (
-            f"SELECT filename, title, artist, album, tuning "
+            f"SELECT filename, title, artist, album, tuning_name "
             f"FROM songs WHERE {' AND '.join(where)} ORDER BY RANDOM() LIMIT 1"
         )
         row = _meta_db.conn.execute(sql, params).fetchone()
@@ -49,18 +43,14 @@ def setup(app, context):
             "tuning":   row[4] or "",
         }
 
-    # ── routes ───────────────────────────────────────────────────────────
     @app.get("/api/plugins/shuffle/random")
     def shuffle_random(artist: str = "", tuning: str = "", avoid: str = ""):
         try:
             song = _pick(artist=artist, tuning=tuning, avoid=avoid)
-            if not song:
-                return {"error": "no_songs"}
-            return song
+            return song if song else {"error": "no_songs"}
         except Exception as e:
             return {"error": str(e)}
 
-    # Alias used by the JS auto-advance prefetch call
     @app.get("/api/plugins/shuffle/next")
     def shuffle_next(artist: str = "", tuning: str = "", avoid: str = ""):
         return shuffle_random(artist=artist, tuning=tuning, avoid=avoid)
@@ -78,11 +68,15 @@ def setup(app, context):
             return {"error": str(e), "artists": []}
 
     @app.get("/api/plugins/shuffle/tunings")
+    @app.get("/api/plugins/shuffle/tunings")
     def shuffle_tunings():
         try:
             rows = _meta_db.conn.execute(
                 "SELECT DISTINCT tuning FROM songs "
                 "WHERE tuning IS NOT NULL AND tuning != '' "
+                "AND tuning NOT LIKE '-%' "
+                "AND tuning NOT GLOB '[0-9]*' "
+                "AND tuning NOT GLOB '-[0-9]*' "
                 "ORDER BY LOWER(tuning)"
             ).fetchall()
             return {"tunings": [r[0] for r in rows]}
