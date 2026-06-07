@@ -48,7 +48,10 @@
 
 It also features a popup when a song is finished showind a countdown (you can change the seconds in the plugin settings), the next song info (title, artist, album, album cover, and tuning).
 
-<img width="350" height="226" alt="2026-06-07 19-34-13" src="https://github.com/user-attachments/assets/42524b70-70b4-4017-bc5e-79958f09b6eb" />
+
+<img width="350" height="226" alt="o-gif" src="https://github.com/user-attachments/assets/9fbafb9f-6ffb-4fe5-9c28-865e0834e236" />
+
+
 
 
 ---
