@@ -1,12 +1,18 @@
 {
   "id": "shuffle",
   "name": "Shuffle",
-  "version": "1.0.0",
+  "version": "3.0.0",
+  "description": "Random playback from your library with tuning filters, auto-advance, and countdown popup",
+  "author": "community",
+  "license": "AGPL-3.0",
   "nav": {
-    "label": "Shuffle",
+    "label": "🔀 Shuffle",
     "screen": "shuffle"
   },
   "screen": "screen.html",
   "script": "screen.js",
+  "settings": {
+    "html": "settings.html"
+  },
   "routes": "routes.py"
 }
