@@ -25,6 +25,7 @@
 - 📋 Playlist summary popup
 - ⚡ Lightweight and fast
 - 🎚️ Customizable shuffle behavior
+- 🌐 Language support (English and Spanish)
 
 <br>
 <br>
