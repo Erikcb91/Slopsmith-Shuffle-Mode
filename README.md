@@ -10,17 +10,21 @@
 
 ## Overview
 
-**Shuffle** is a plugin for Slopsmith that provides advanced music shuffling and discovery features for your local music library.
+**Shuffle** is a plugin for Slopsmith that provides advanced music shuffling and discovery features for your local music library. You can use it from the "Plugins" menu or just by clicking the "Shuffle" button on the main screen. English and Spanish languages supported.
+
+<img width="1586" height="167" alt="image" src="https://github.com/user-attachments/assets/1634afa0-1c85-44b9-80d2-e0dd1b2d7f4f" />
 
 ### Features
 
 - 🔄 Automatically shuffle when a song ends
 - 🎵 Filter by artist
-- 🚫 Exclude specific artists
 - 🔁 Anti-repeat functionality
 - 📋 Playlist summary popup
 - ⚡ Lightweight and fast
 - 🎚️ Customizable shuffle behavior
+
+<img width="896" height="1215" alt="image" src="https://github.com/user-attachments/assets/5f0e7d1d-c0a5-40d0-bff3-5d439a928ff0" />
+
 
 ---
 
@@ -58,7 +62,7 @@
 1. Open **Slopsmith**
 2. Open **Plugins**
 3. Click **Install Plugin from URL**
-4. Paste this repository URL
+4. Paste **https://github.com/Erikcb91/Slopsmith-Shuffle-Mode**
 5. Click **Install**
 
 ---
@@ -67,7 +71,7 @@
 
 Clone the repository:
 
-    git clone <repository-url>
+    git clone https://github.com/Erikcb91/Slopsmith-Shuffle-Mode
 
 Copy the `shuffle` folder into:
 
@@ -80,6 +84,13 @@ The full expanded path is typically:
 Restart Slopsmith after installation.
 
 ---
+### Method 3: Other Manual Installation
+
+    Download the repo as a Zip file
+    Extract the files to "C:\Users\<YourUsername>\AppData\Roaming\Slopsmith\current\resources\slopsmith\plugins\shuffle"
+    If the "shuffle" folder doesn't exist create it.
+    
+---
 
 ## Usage
 
@@ -88,24 +99,13 @@ Restart Slopsmith after installation.
 3. Enable auto-advance if desired.
 4. Optionally:
    - Filter by artist
-   - Exclude artists
    - Enable anti-repeat
    - Adjust delay timing
 5. Start playback and let Shuffle handle the rest.
 
 ---
 
-## License
-
-MIT License
-
----
-
-## Acknowledgments
-
-- Slopsmith
-- Contributors
-- Open-source community
+⚠️ **Disclaimer:** This is fully **VIBE CODED** don't expect me to know why it fails if it does. I just wanted to have the option to play in a "random mode" so i did this. Also don't expect too many updates (if any).
 
 ---
 
