@@ -8,14 +8,15 @@
 
 ---
 
+⚠️ **Disclaimer:** This is fully **VIBE CODED** don't expect me to know why it fails if it does. I just wanted to have the option to play in a "random mode" so i did this. Also don't expect too many updates (if any).
+
+---
+
 ## Overview
 
 **Shuffle** is a plugin for Slopsmith that provides advanced music shuffling and discovery features for your local music library. You can use it from the "Plugins" menu or just by clicking the "Shuffle" button on the main screen. English and Spanish languages supported.
 
-### Shuffle Button
-
-<img width="1586" height="167" alt="image" src="https://github.com/user-attachments/assets/1634afa0-1c85-44b9-80d2-e0dd1b2d7f4f" />
-
+   
 ### Features
 
 - 🔄 Automatically shuffle when a song ends
@@ -25,9 +26,22 @@
 - ⚡ Lightweight and fast
 - 🎚️ Customizable shuffle behavior
 
+<br>
+<br>
+
+### Shuffle Button
+
+<img width="1586" height="167" alt="image" src="https://github.com/user-attachments/assets/1634afa0-1c85-44b9-80d2-e0dd1b2d7f4f" />
+
+<br>
+<br>
+
 ### Plugin Settings
 
 <img width="450" height="610" alt="image" src="https://github.com/user-attachments/assets/5f0e7d1d-c0a5-40d0-bff3-5d439a928ff0" />
+
+<br>
+<br>
 
 ### Next song popup
 
@@ -128,8 +142,5 @@ For the reasons stated below, there is no roadmap, i might take a look on filter
 
 ---
 
-⚠️ **Disclaimer:** This is fully **VIBE CODED** don't expect me to know why it fails if it does. I just wanted to have the option to play in a "random mode" so i did this. Also don't expect too many updates (if any).
-
----
 
 [Back to Top](#shuffle)
