@@ -152,7 +152,7 @@ For the reasons stated above, there is no roadmap.
 
 - [x] Filter by artist
 - [x] Filter by tuning
-- [ ] Whatever breaks next
+
 
 ---
 
