@@ -1,0 +1,229 @@
+<style>
+  .shuffle-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    font-family: system-ui, sans-serif;
+    color: #e8e8f0;
+  }
+
+  .shuffle-wrap h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .shuffle-subtitle {
+    color: #888;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .shuffle-card {
+    background: #1a1a24;
+    border: 1px solid #2a2a3a;
+    border-radius: 16px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .shuffle-now-playing {
+    background: #12121a;
+    border: 1px solid #2a2a3a;
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.2rem;
+  }
+
+  .shuffle-now-playing.empty { color: #444; font-size: 0.9rem; }
+
+  .shuffle-song-title  { font-size: 1.2rem; font-weight: 600; color: #f0f0ff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .shuffle-song-artist { font-size: 0.95rem; color: #888; }
+  .shuffle-song-album  { font-size: 0.88rem; color: #555; }
+
+  .shuffle-next-song {
+    background: #0a0a10;
+    border: 1px solid #2a2a3a;
+    border-radius: 12px;
+    padding: 0.8rem 1.2rem;
+    margin-top: 0.5rem;
+  }
+  .shuffle-next-label {
+    font-size: 0.78rem;
+    color: #5b4fff;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.3rem;
+  }
+  .shuffle-next-title { font-size: 1rem; font-weight: 500; color: #ccc; }
+  .shuffle-next-artist { font-size: 0.88rem; color: #888; }
+  .shuffle-next-tuning { font-size: 0.82rem; color: #5b4fff; margin-top: 0.2rem; }
+
+  .shuffle-btn-row { display: flex; gap: 0.75rem; }
+
+  .shuffle-btn {
+    cursor: pointer; border: none; border-radius: 10px;
+    font-size: 1rem; font-weight: 600; padding: 0.75rem 1.25rem;
+    transition: opacity 0.15s, transform 0.1s;
+  }
+  .shuffle-btn:active { transform: scale(0.97); }
+  .shuffle-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+  .shuffle-btn-primary { flex: 1; background: #5b4fff; color: #fff; font-size: 1.05rem; }
+  .shuffle-btn-primary:hover:not(:disabled) { background: #6d63ff; }
+  .shuffle-btn-secondary { background: #252535; color: #ccc; }
+  .shuffle-btn-secondary:hover:not(:disabled) { background: #2e2e45; }
+
+  .shuffle-toggle-row {
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 0.95rem; color: #aaa;
+  }
+
+  .shuffle-delay-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .shuffle-delay-row input {
+    width: 70px;
+    background: #12121a;
+    border: 1px solid #2a2a3a;
+    border-radius: 8px;
+    color: #e8e8f0;
+    padding: 0.4rem 0.6rem;
+    text-align: center;
+  }
+
+  .shuffle-label { font-size: 0.88rem; color: #666; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.35rem; display: block; }
+
+  .shuffle-select {
+    width: 100%; background: #12121a; border: 1px solid #2a2a3a;
+    border-radius: 8px; color: #e8e8f0; padding: 0.6rem 0.9rem;
+    font-size: 0.95rem; outline: none;
+  }
+  .shuffle-select:focus { border-color: #5b4fff; }
+  option { background: #1a1a24; }
+
+  .shuffle-toggle { position: relative; width: 38px; height: 22px; display: inline-block; }
+  .shuffle-toggle input { opacity: 0; width: 0; height: 0; }
+  .shuffle-slider {
+    position: absolute; inset: 0; background: #252535; border-radius: 22px;
+    cursor: pointer; transition: background 0.2s;
+  }
+  .shuffle-slider::before {
+    content: ""; position: absolute; width: 16px; height: 16px;
+    left: 3px; top: 3px; background: #fff; border-radius: 50%; transition: transform 0.2s;
+  }
+  input:checked + .shuffle-slider { background: #5b4fff; }
+  input:checked + .shuffle-slider::before { transform: translateX(16px); }
+
+  .shuffle-section-title { font-size: 0.82rem; color: #555; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  .shuffle-history {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 0.4rem;
+    max-height: 200px; overflow-y: auto;
+  }
+  .shuffle-history li {
+    background: #12121a; border: 1px solid #1e1e2e; border-radius: 8px;
+    padding: 0.5rem 0.8rem; font-size: 0.9rem; color: #aaa; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center; gap: 0.5rem;
+    transition: border-color 0.15s;
+  }
+  .shuffle-history li:hover { border-color: #5b4fff; color: #e8e8f0; }
+  .shuffle-hist-title { font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .shuffle-hist-artist { color: #555; font-size: 0.78rem; white-space: nowrap; }
+  .shuffle-empty { color: #444; font-size: 0.85rem; text-align: center; padding: 0.5rem 0; }
+
+  .shuffle-status { font-size: 0.8rem; min-height: 1em; text-align: center; color: #666; }
+  .shuffle-status.error { color: #e05; }
+
+  @keyframes shuffle-spin { to { transform: rotate(360deg); } }
+  .shuffle-spinner {
+    display: inline-block; width: 14px; height: 14px;
+    border: 2px solid #444; border-top-color: #5b4fff;
+    border-radius: 50%; animation: shuffle-spin 0.7s linear infinite;
+    vertical-align: middle; margin-right: 6px;
+  }
+</style>
+
+<div class="shuffle-wrap">
+  <h1>🔀 Shuffle</h1>
+  <p class="shuffle-subtitle" data-i18n="subtitle">Reproducción aleatoria de tu biblioteca</p>
+
+  <div class="shuffle-card">
+
+    <div id="shuffle-now-playing" class="shuffle-now-playing empty">
+      <span style="color:#444" data-i18n="pressToStart">Pulsa Shuffle para empezar</span>
+    </div>
+
+    <div id="shuffle-next-container" class="shuffle-next-song">
+      <div class="shuffle-next-label" data-i18n="nextSong">⬇️ PRÓXIMA CANCIÓN</div>
+      <div id="shuffle-next-title" class="shuffle-next-title">—</div>
+      <div id="shuffle-next-artist" class="shuffle-next-artist">—</div>
+      <div id="shuffle-next-tuning" class="shuffle-next-tuning"></div>
+    </div>
+
+    <div class="shuffle-btn-row">
+      <button id="shuffle-btn-main" class="shuffle-btn shuffle-btn-primary" data-i18n="shuffleBtn">🔀 Shuffle</button>
+      <button id="shuffle-btn-again" class="shuffle-btn shuffle-btn-secondary" disabled data-i18n="repeatBtn" data-i18n-title="repeatTitle">↩ Repetir</button>
+    </div>
+
+    <div class="shuffle-toggle-row">
+      <span data-i18n="autoAdvance">Avance automático al terminar la canción</span>
+      <label class="shuffle-toggle">
+        <input type="checkbox" id="shuffle-auto-advance" checked />
+        <span class="shuffle-slider"></span>
+      </label>
+    </div>
+
+    <div class="shuffle-delay-row">
+      <span data-i18n="delayWait">⏱️ Esperar antes de siguiente (segundos)</span>
+      <input type="number" id="shuffle-delay-seconds" min="0" max="15" step="0.5" value="5" />
+    </div>
+
+    <div class="shuffle-toggle-row">
+      <span data-i18n="antiRepeat">Evitar repetir las últimas 5 canciones</span>
+      <label class="shuffle-toggle">
+        <input type="checkbox" id="shuffle-anti-repeat" checked />
+        <span class="shuffle-slider"></span>
+      </label>
+    </div>
+
+    <div>
+      <span class="shuffle-label" data-i18n="filterArtist">Filtrar por artista</span>
+      <select id="shuffle-artist-filter" class="shuffle-select">
+        <option value="" data-i18n="allArtists">— Todos los artistas —</option>
+      </select>
+    </div>
+
+    <div>
+      <span class="shuffle-label" data-i18n="langLabel">Idioma</span>
+      <select id="shuffle-lang" class="shuffle-select">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+
+    <div id="shuffle-status" class="shuffle-status"></div>
+
+    <div>
+      <div class="shuffle-section-title" style="margin-bottom:0.5rem" data-i18n="recentHistory">Historial reciente</div>
+      <ul id="shuffle-history" class="shuffle-history">
+        <li id="shuffle-history-empty" class="shuffle-empty" data-i18n="noHistory">Sin historial todavía</li>
+      </ul>
+    </div>
+
+  </div>
+</div>

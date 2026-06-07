@@ -1,0 +1,12 @@
+{
+  "id": "shuffle",
+  "name": "Shuffle",
+  "version": "1.0.0",
+  "nav": {
+    "label": "Shuffle",
+    "screen": "shuffle"
+  },
+  "screen": "screen.html",
+  "script": "screen.js",
+  "routes": "routes.py"
+}
