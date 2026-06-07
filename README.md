@@ -19,6 +19,7 @@
    
 ### Features
 
+- ▶️ Play songs automatically
 - 🔄 Automatically shuffle when a song ends
 - 🎵 Filter by artist
 - 🔁 Anti-repeat functionality
