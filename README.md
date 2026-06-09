@@ -23,6 +23,10 @@
 - 🎸 Filter by tuning (E Standard, Eb Standard, Drop D… whatever's in your library)
 - 🔁 Anti-repeat functionality
 - 📋 Playlist summary popup with album art, title, artist and tuning of the next song
+- ⏭️ **Skip the current song** (via popup or highway button)
+- 🔁 **Resume** the original song if you skip by mistake (popup with Resume button)
+- 🚪 **Exit shuffle mode** from popup or a dedicated button on the highway
+- 🎨 **Auto theme** – popup colours adapt to the app's active theme
 - ⚡ Lightweight and fast
 - 🎚️ Customizable shuffle behavior
 - 🌐 Language support (English and Spanish)
@@ -37,29 +41,31 @@
 
 ### Plugin Settings
 
-
 <img width="450" height="730" alt="image" src="https://github.com/user-attachments/assets/d5730f0e-9aac-4a31-835c-518657bc359f" />
 
 <br>
 
-### Next song popup
-
-It also features a popup when a song is finished showing a countdown (you can change the seconds in the plugin settings), the next song info (title, artist, album, album cover, and tuning).
+### Next song popup with Skip and Exit
 
 <img width="350" height="226" alt="o-gif" src="https://github.com/user-attachments/assets/9fbafb9f-6ffb-4fe5-9c28-865e0834e236" />
+
+<br>
+
+### Highway buttons (Skip current & Stop Shuffle)
+
+<img width="500" alt="highway-buttons" src="https://github.com/user-attachments/assets/placeholder-highway.png" />
 
 ---
 
 ## Project Structure
-
-```
 shuffle/
-├── plugin.json
-├── README.md
-├── routes.py
-├── screen.html
-└── screen.js
-```
+plugin.json
+README.md
+routes.py
+screen.html
+screen.js
+
+text
 
 | File | Description |
 |------|-------------|
@@ -94,22 +100,19 @@ shuffle/
 ### Method 2: Manual Installation
 
 Clone the repository:
-
-```
 git clone https://github.com/Erikcb91/Slopsmith-Shuffle-Mode
-```
+
+text
 
 Copy the `shuffle` folder into:
-
-```
 %APPDATA%\Slopsmith\current\resources\slopsmith\plugins\shuffle
-```
+
+text
 
 The full expanded path is typically:
+C:\Users<YourUsername>\AppData\Roaming\Slopsmith\current\resources\slopsmith\plugins\shuffle
 
-```
-C:\Users\<YourUsername>\AppData\Roaming\Slopsmith\current\resources\slopsmith\plugins\shuffle
-```
+text
 
 Restart Slopsmith after installation.
 
@@ -119,9 +122,9 @@ Restart Slopsmith after installation.
 
 1. Download the repo as a ZIP file
 2. Extract the files to:
-   ```
-   C:\Users\<YourUsername>\AppData\Roaming\Slopsmith\current\resources\slopsmith\plugins\shuffle
-   ```
+C:\Users<YourUsername>\AppData\Roaming\Slopsmith\current\resources\slopsmith\plugins\shuffle
+
+text
 3. If the `shuffle` folder doesn't exist, create it.
 4. Restart Slopsmith.
 
@@ -133,17 +136,26 @@ Restart Slopsmith after installation.
 2. Configure your shuffle preferences.
 3. Enable auto-advance if desired.
 4. Optionally:
-   - Filter by artist
-   - Filter by tuning
-   - Enable anti-repeat
-   - Adjust delay timing
+- Filter by artist
+- Filter by tuning
+- Enable anti-repeat
+- Adjust delay timing
 5. Start playback and let Shuffle handle the rest.
 
-## OR
+### OR
 
 1. Open the Shuffle plugin.
 2. Configure your shuffle preferences.
 3. Go back to your library and click the **🔀 Shuffle** button.
+
+### New interactive features
+
+- **Skip current song** (highway button) → pauses the song and shows a popup with:
+- **Skip this song** → load a new random song (skip confirmed)
+- **Resume** → continue playing the original song
+- **Exit** → exit shuffle mode and go back to the library
+- **Stop Shuffle** (highway button) → instantly exit shuffle mode
+- Popup buttons are always centred, with a countdown and two dividers for a clean layout.
 
 ---
 
@@ -153,7 +165,10 @@ For the reasons stated above, there is no roadmap.
 
 - [x] Filter by artist
 - [x] Filter by tuning
-
+- [x] Skip current song (popup + highway)
+- [x] Resume original song on skip
+- [x] Exit shuffle mode from popup / highway
+- [x] Auto theme (follow the app's active theme)
 
 ---
 

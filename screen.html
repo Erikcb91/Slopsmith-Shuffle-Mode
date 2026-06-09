@@ -1,5 +1,7 @@
 <style>
   .shuffle-wrap { display:flex;flex-direction:column;align-items:center;padding:2rem 1rem;font-family:system-ui,sans-serif;color:#e8e8f0 }
+  /* Aumentamos el padding-top para separar del navbar */
+  .shuffle-wrap { padding-top: 5rem; }
   .shuffle-wrap h1 { font-size:2rem;font-weight:700;margin-bottom:.25rem;letter-spacing:-.02em }
   .shuffle-subtitle { color:#888;font-size:.9rem;margin-bottom:2rem }
   .shuffle-card { background:#1a1a24;border:1px solid #2a2a3a;border-radius:16px;padding:2rem;width:100%;max-width:540px;display:flex;flex-direction:column;gap:1.25rem }
@@ -85,7 +87,7 @@
       </select>
     </div>
 
-    <!-- Tuning filter (NEW) -->
+    <!-- Tuning filter -->
     <div>
       <span class="shuffle-label" data-i18n="filterTuning"></span>
       <select id="shuffle-tuning-filter" class="shuffle-select">
@@ -93,10 +95,10 @@
       </select>
     </div>
 
-    <!-- Language -->
-    <div class="shuffle-toggle-row">
-      <span data-i18n="langLabel"></span>
-      <select id="shuffle-lang" style="background:#12121a;border:1px solid #2a2a3a;border-radius:6px;color:#e8e8f0;padding:4px 8px;font-size:.85rem;outline:none">
+    <!-- Language filter (ahora con etiqueta arriba y mismo ancho) -->
+    <div>
+      <span class="shuffle-label" data-i18n="langLabel"></span>
+      <select id="shuffle-lang" class="shuffle-select" style="width:100%">
         <option value="es">Español</option>
         <option value="en">English</option>
       </select>
