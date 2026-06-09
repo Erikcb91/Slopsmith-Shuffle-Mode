@@ -114,7 +114,7 @@ C:\Users<YourUsername>\AppData\Roaming\Slopsmith\current\resources\slopsmith\plu
 
 text
 
-Restart Slopsmith after installation.
+Restart the app after installation.
 
 ---
 
@@ -142,12 +142,6 @@ text
 - Adjust delay timing
 5. Start playback and let Shuffle handle the rest.
 
-### OR
-
-1. Open the Shuffle plugin.
-2. Configure your shuffle preferences.
-3. Go back to your library and click the **🔀 Shuffle** button.
-
 ### New interactive features
 
 - **Skip current song** (highway button) → pauses the song and shows a popup with:
@@ -155,13 +149,11 @@ text
 - **Resume** → continue playing the original song
 - **Exit** → exit shuffle mode and go back to the library
 - **Stop Shuffle** (highway button) → instantly exit shuffle mode
-- Popup buttons are always centred, with a countdown and two dividers for a clean layout.
 
 ---
 
 ## Roadmap
 
-For the reasons stated above, there is no roadmap.
 
 - [x] Filter by artist
 - [x] Filter by tuning
